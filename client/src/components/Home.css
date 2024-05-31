@@ -1,0 +1,9 @@
+.main-card:hover {
+    transform: scale(1.15);
+    transition: 0.2s;
+}
+
+.main-card{
+    border-color: rgb(81, 61, 214);
+    color: rgb(79, 135, 181);
+}
