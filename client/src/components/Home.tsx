@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Card from './Card';
+import {BASE_URL} from '../assets/constants'
+
 
 interface Repo {
   html_url: string;
@@ -22,7 +24,7 @@ const Home: React.FC = () => {
 
   const fetchRepos = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/github?username=${username}`);
+      const response = await axios.get(`${BASE_URL}/github?username=${username}`);
       setRepos(response.data.data);
       setError('');
     } catch (err) {

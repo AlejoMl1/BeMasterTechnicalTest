@@ -28,7 +28,17 @@ router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         // Sort repositories by stargazers_count in descending order
         const sortedRepos = repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
         // Take the top 10 repositories
-        const top10Repos = sortedRepos.slice(0, 10);
+        const top10Repos = sortedRepos.slice(0, 10).map((repo) => ({
+            html_url: repo.html_url,
+            created_at: repo.created_at,
+            clone_url: repo.clone_url,
+            stargazers_count: repo.stargazers_count,
+            language: repo.language,
+            description: repo.description,
+            forks_count: repo.forks_count,
+            open_issues_count: repo.open_issues_count,
+            license: repo.license ? repo.license.name : "No license",
+        }));
         return res.status(200).json({ data: top10Repos });
     }
     catch (error) {
