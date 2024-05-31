@@ -1,4 +1,3 @@
-import http from "http";
 import { PORT, CORS_URL } from "./config";
 import express from "express";
 import bodyParser from "body-parser";
